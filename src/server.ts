@@ -22,6 +22,6 @@ app.use(errorHandler);
 connectRedis();
 
 app.listen(port, () => {
-	const message = `USSD is running in mode: ${mode} at http://localhost:${port}`;
+	const message = `Dynamic USSD is running in mode: ${mode} at http://localhost:${port}`;
 	logger.info(message);
 });

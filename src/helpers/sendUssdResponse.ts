@@ -2,17 +2,17 @@ export interface UssdMenuParams {
 	msisdn: string;
 	sessionID: string;
 	starcode: string;
-	flag: 1 | 2;
+	flag: number;
 	menu: string;
 	timestamp: string;
 }
 
-const UssdResponse = (params: UssdMenuParams): string => {
+const sendUssdResponse = (params: UssdMenuParams): string => {
 	if (params.msisdn.length === 9) {
 		params.msisdn = `233${params.msisdn}`;
 	}
 
-	const xmlResponse = `
+	const xmlBody = `
 		<?xml version="1.0" encoding="utf-8"?>
 		<USSDDynMenuResponse>
 			<requestId>${params.sessionID}</requestId>
@@ -34,7 +34,7 @@ const UssdResponse = (params: UssdMenuParams): string => {
 		</USSDDynMenuResponse>
 	`;
 
-	return xmlResponse;
+	return xmlBody;
 };
 
-export default UssdResponse;
+export default sendUssdResponse;
