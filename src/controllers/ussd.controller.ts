@@ -2,6 +2,7 @@ import { Request, Response } from 'express';
 
 import asyncHandler from '../middlewares/async.middleware';
 import UssdResponse, { UssdMenuParams } from '../helpers/UssdResponse';
+import Menu from '../Menu.json';
 
 const ussdController = asyncHandler(async (req: Request, res: Response) => {
 	const body = req.body.ussddynmenurequest;
@@ -13,7 +14,7 @@ const ussdController = asyncHandler(async (req: Request, res: Response) => {
 	const userdata = body.userdata[0].trim();
 
 	const params: UssdMenuParams = {
-		menu: 'Thi is a test menu',
+		menu: Menu['0'],
 		flag: 2,
 		msisdn,
 		sessionID,

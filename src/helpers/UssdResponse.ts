@@ -24,7 +24,7 @@ const UssdResponse = (params: UssdMenuParams): string => {
 			<dataSet>
 				<param>
 					<id>1</id>
-					<value>${params.menu}</value>
+					<value>\n${params.menu}\n</value>
 					<rspFlag>${params.flag}</rspFlag>
 					<default>1</default>
 				</param>
