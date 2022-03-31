@@ -2,19 +2,18 @@
 	"INIT": "MiFi or Router Balance Check\n\n1. Pair MiFi or Router\n2. Confirm MiFi or Router Pairing\n3. MiFi or Router Balance Check\n4. Unpair MiFi or Router",
 	"1": {
 		"1": "Enter the number in your MiFi or Router\n",
-		"confirm": "You are pairing 27XXXXXXXX to your MiFi/Router with number 027YYYYYYY\n1. Confirm\n2. Cancel\n\n"
+		"confirm": "You are pairing (A_PARTY_NUMBER) to your MiFi/Router with number (B_PARTY_NUMBER)\n1. Confirm\n2. Cancel\n\n"
 	},
 	"2": {
 		"1": "Enter the number in your MiFi or Router\n",
 		"2": "Enter the 4 digit code received\n",
-		"confirm": "Number: 027XXXXXXXX\nConfirmation Code: XXXX\n1. Confirm\n2. Cancel\n\n"
+		"confirm": "Number: (B_PARTY_NUMBER)\nConfirmation Code: (CODE)\n1. Confirm\n2. Cancel\n\n"
 	},
 	"3": {
 		"1": "Select MiFi or Router number to check balance:\n1. 027XXXXXXX\n2. 027XXXXXXX\n3. 026XXXXXXX\n"
 	},
 	"4": {
 		"1": "Select MiFi or Router number to unpair:\n1. 027XXXXXXX\n2. 027XXXXXXX\n3. 026XXXXXXX\n",
-		"2": "You are unpairing 27xxxxxxx from your MiFi/Router with number 027yyyyyyy\n1. Confirm\n2. Cancel\n\n",
-		"confirm": "Number: 027XXXXXXXX\nConfirmation Code: XXXX\n1. Confirm\n2. Cancel\n\n"
+		"confirm": "You are unpairing (A_PARTY_NUMBER) from your MiFi/Router with number (B_PARTY_NUMBER)\n1. Confirm\n2. Cancel\n\n"
 	}
 }
