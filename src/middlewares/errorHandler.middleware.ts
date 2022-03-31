@@ -6,6 +6,7 @@ import messages from '../utils/messages/app.messages';
 import logger from '../utils/loggers/logger';
 import deserialize from '../helpers/deserialize';
 import sendUssdResponse, { UssdMenuParams } from '../helpers/sendUssdResponse';
+import UssdError from '../utils/errors/UssdError';
 
 // eslint-disable-next-line
 const errorHandler = (
@@ -45,8 +46,9 @@ const errorHandler = (
 	};
 
 	// HTTP Handler
-	if (error instanceof HttpError) {
+	if (error instanceof UssdError) {
 		logger.warn(error.message, { context });
+		params.flag = error.flag;
 		return res.send(sendUssdResponse(params));
 	}
 
