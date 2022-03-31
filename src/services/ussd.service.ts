@@ -11,9 +11,8 @@ const ussdService = async (request: ISession) => {
 		const initSessions = await db.initSession(request);
 		const lastSession = initSessions[initSessions.length - 1];
 		const menu = lastSession.menu;
-		const flag = lastSession.flag;
 
-		return { menu, flag };
+		return { menu, flag: 1 };
 	}
 
 	// read and handle user data

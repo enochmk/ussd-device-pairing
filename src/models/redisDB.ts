@@ -13,6 +13,7 @@ export const initSession = async (session: ISession) => {
 	session.userdata = null;
 	session.option = null;
 	session.page = null;
+	session.flag = 1;
 	sessions.push(session);
 
 	await client.set(session.sessionID, JSON.stringify(sessions), {

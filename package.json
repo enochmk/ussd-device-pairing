@@ -5,7 +5,10 @@
 	"main": "server.js",
 	"scripts": {
 		"dev": "nodemon src/server.ts",
-		"test": "jest"
+		"test": "jest",
+		"cleanup": "rimraf build",
+		"build": "npm run cleanup && tsc --pretty",
+		"start": "npm run build && node build/server.js"
 	},
 	"repository": {
 		"type": "git",
