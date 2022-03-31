@@ -7,7 +7,7 @@ import {
 import Menu from '../../Menu.json';
 import { ISession } from '../../interfaces/IUssd';
 import { validateMsisdn } from '../../helpers/inputValidation';
-import getPairingDevices from '../../api/getPairingDevices.api';
+import { getPairingDevices } from '../../api/getPairingDevices.api';
 import checkBalance from '../../api/checkBalance.api';
 
 const OPTION_MENU = Menu['3'];
