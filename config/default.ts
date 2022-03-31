@@ -14,6 +14,9 @@ const config = {
 		username: process.env.SMS_USERNAME,
 		password: process.env.SMS_PASSWORD,
 	},
+	api: {
+		host: process.env.API_HOST,
+	},
 	redis: {
 		expiry: 600000,
 	},
