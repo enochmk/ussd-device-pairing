@@ -18,7 +18,7 @@ const config = {
 		host: process.env.API_HOST,
 	},
 	redis: {
-		expiry: 600000,
+		expiry: 60,
 	},
 };
 
