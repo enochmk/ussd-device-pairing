@@ -1,14 +1,15 @@
 {
 	"name": "ussd-device-pairing",
-	"version": "1.0.0",
-	"description": "",
+	"version": "1.1.0",
+	"description": "Dynamic USSD for AirtelTigo Device Pairing",
 	"main": "server.js",
 	"scripts": {
 		"dev": "nodemon src/server.ts",
 		"test": "jest",
 		"cleanup": "rimraf build",
 		"build": "npm run cleanup && tsc --pretty",
-		"start": "npm run build && node build/server.js"
+		"start": "npm run build && node build/server.js",
+		"release": "standard-version"
 	},
 	"repository": {
 		"type": "git",
@@ -32,6 +33,7 @@
 		"morgan": "^1.10.0",
 		"mssql": "^6.4.1",
 		"redis": "^4.0.4",
+		"standard-version": "^9.3.2",
 		"uuid": "^8.3.2",
 		"winston": "^3.6.0"
 	},
