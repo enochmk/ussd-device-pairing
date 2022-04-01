@@ -1,6 +1,6 @@
 {
 	"name": "ussd-device-pairing",
-	"version": "1.1.0",
+	"version": "1.1.1",
 	"description": "Dynamic USSD for AirtelTigo Device Pairing",
 	"main": "server.js",
 	"scripts": {
