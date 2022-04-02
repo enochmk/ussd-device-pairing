@@ -5,7 +5,9 @@ import UssdError from '../utils/errors/UssdError';
 
 const HOST = config.get('api.host');
 
-export const getPairingDevices = async (aPartyNumber: string) => {
+export const getPairedDevices = async (
+	aPartyNumber: string
+): Promise<string> => {
 	const URL = `${HOST}/api/devicepairing/getPairedDevices?initiator=${aPartyNumber}&aPartyNumber=${aPartyNumber}&channel=ussd`;
 
 	try {

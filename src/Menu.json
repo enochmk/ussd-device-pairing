@@ -10,7 +10,9 @@
 		"confirm": "Number: (B_PARTY_NUMBER)\nConfirmation Code: (CODE)\n1. Confirm\n2. Cancel\n"
 	},
 	"3": {
-		"1": "Select MiFi or Router number to check balance:\n1. 027XXXXXXX\n2. 027XXXXXXX\n3. 026XXXXXXX\n"
+		"1": "Select MiFi or Router number to check balance:\n1. 027XXXXXXX\n2. 027XXXXXXX\n3. 026XXXXXXX\n",
+		"NO_PAIRED_DEVICE": "No Device Pairing Request exist. Initiate a pairing request\n",
+		"NO_PAIRED_DEVICE_2": "No Device Pairing Request exist. Initiate a pairing request\n"
 	},
 	"4": {
 		"1": "Select MiFi or Router number to unpair:\n1. 027XXXXXXX\n2. 027XXXXXXX\n3. 026XXXXXXX\n",
