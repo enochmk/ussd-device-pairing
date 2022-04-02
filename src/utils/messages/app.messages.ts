@@ -9,5 +9,4 @@ export default {
 		"Hello, you've entered an invalid input. Check and try again. Thank you and keep safe.",
 	INVALID_OPTION:
 		'Hello, you have selected an invalid option. Check and try again. Thank you and keep safe.',
-	CHECK_BALANCE_HEADER: 'Select MiFi or Router number to check balance:',
 };
