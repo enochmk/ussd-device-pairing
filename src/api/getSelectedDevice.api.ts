@@ -6,7 +6,7 @@ import UssdError from '../utils/errors/UssdError';
 const HOST = config.get('api.host');
 
 const getSelectedDevice = async (aPartyNumber: string, option: string) => {
-	const URL = `${HOST}/api/devicepairing/getSelectedDeviceMsisdn?initiator=${aPartyNumber}&aPartyNumber=${aPartyNumber}&option=${option}&channel=ussd`;
+	const URL = `${HOST}/api/devicepairing/getMsisdnOfSelectedPairedDevice?initiator=${aPartyNumber}&aPartyNumber=${aPartyNumber}&option=${option}&channel=ussd`;
 
 	try {
 		const response = await axios.get(URL);

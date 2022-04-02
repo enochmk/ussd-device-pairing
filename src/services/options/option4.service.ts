@@ -1,3 +1,4 @@
+import { getPairedDevices } from './../../api/getPairingDevices.api';
 import { getSessions } from './../../models/redisDB';
 import { validateOption } from '../../helpers/inputValidation';
 import {
@@ -28,7 +29,15 @@ export default async (request: ISession) => {
 		if (lastSession?.page === null) {
 			request.page = '1';
 			const aPartyNumber = validateMsisdn(request.msisdn);
-			request.menu = await getRemovePairDevices(aPartyNumber);
+			request.menu = await getPairedDevices(aPartyNumber);
+
+			if (!request.menu) {
+				request.menu = OPTION_MENU['NO_PAIRED_DEVICE'];
+				flag = 2;
+			} else {
+				request.menu =
+					OPTION_MENU['UNPAIR_DEVICE_HEADER'] + '\n' + request.menu;
+			}
 		}
 
 		// ? Page 1
