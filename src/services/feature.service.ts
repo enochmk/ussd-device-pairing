@@ -1,13 +1,8 @@
-import {
-	popSession,
-	clearSession,
-	initSession,
-	getLastSession,
-} from './../models/redisDB';
 import * as redisDB from '../models/redisDB';
-import { ISession } from '../interfaces/IUssd';
 import UssdError from '../utils/errors/UssdError';
 import messages from '../utils/messages/app.messages';
+import { ISession } from '../interfaces/IUssd';
+import { popSession, clearSession, initSession, getLastSession } from '../models/redisDB';
 
 const BUTTONS = {
 	CANCEL: '99',

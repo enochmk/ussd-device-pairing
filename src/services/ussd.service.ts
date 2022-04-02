@@ -1,6 +1,6 @@
 import * as db from '../models/redisDB';
 import optionHandler from './optionHandler.service';
-import { ISession } from './../interfaces/IUssd';
+import { ISession } from '../interfaces/IUssd';
 import { featuresHandler } from './feature.service';
 
 const ussdService = async (request: ISession) => {

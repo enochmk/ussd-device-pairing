@@ -1,14 +1,9 @@
-import { validateOption } from './../../helpers/inputValidation';
-import {
-	pushSession,
-	getLastSession,
-	clearSession,
-} from '../../models/redisDB';
 import Menu from '../../Menu.json';
-import { ISession } from '../../interfaces/IUssd';
-import { validateMsisdn } from '../../helpers/inputValidation';
-import { getPairedDevices } from '../../api/getPairingDevices.api';
 import checkBalance from '../../api/checkBalance.api';
+import { ISession } from '../../interfaces/IUssd';
+import { getPairedDevices } from '../../api/getPairingDevices.api';
+import { pushSession, getLastSession, clearSession } from '../../models/redisDB';
+import { validateOption, validateMsisdn } from '../../helpers/inputValidation';
 
 const OPTION_MENU = Menu['3'];
 
@@ -26,10 +21,10 @@ export default async (request: ISession) => {
 			request.menu = await getPairedDevices(aPartyNumber);
 
 			if (!request.menu) {
-				request.menu = OPTION_MENU['NO_PAIRED_DEVICE'];
+				request.menu = OPTION_MENU.NO_PAIRED_DEVICE;
 				flag = 2;
 			} else {
-				request.menu = OPTION_MENU['NO_PAIRED_DEVICE'] + '\n' + request.menu;
+				request.menu = `${OPTION_MENU.NO_PAIRED_DEVICE}\n${request.menu}`;
 			}
 		}
 

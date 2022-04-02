@@ -1,15 +1,10 @@
-import {
-	pushSession,
-	getSessions,
-	getLastSession,
-	clearSession,
-} from './../../models/redisDB';
 import Menu from '../../Menu.json';
-import { ISession } from './../../interfaces/IUssd';
-import messages from '../../utils/messages/app.messages';
 import UssdError from '../../utils/errors/UssdError';
-import { validateMsisdn } from '../../helpers/inputValidation';
 import initiatePairing from '../../api/initiatePairing.api';
+import messages from '../../utils/messages/app.messages';
+import { ISession } from '../../interfaces/IUssd';
+import { pushSession, getSessions, getLastSession, clearSession } from '../../models/redisDB';
+import { validateMsisdn } from '../../helpers/inputValidation';
 
 const OPTION_MENU = Menu['1'];
 
@@ -33,7 +28,7 @@ export default async (request: ISession) => {
 			const aPartyNumber = validateMsisdn(request.msisdn);
 
 			request.page = 'confirm';
-			request.menu = OPTION_MENU['confirm']
+			request.menu = OPTION_MENU.confirm
 				.replace('(A_PARTY_NUMBER)', aPartyNumber)
 				.replace('(B_PARTY_NUMBER)', bPartyNumber);
 		}

@@ -1,23 +1,16 @@
 import { NextFunction, Request, Response } from 'express';
 import moment from 'moment';
 
-import HttpError from '../utils/errors/HttpError';
-import messages from '../utils/messages/app.messages';
-import logger from '../utils/loggers/logger';
-import deserialize from '../helpers/deserialize';
-import sendUssdResponse, { UssdMenuParams } from '../helpers/sendUssdResponse';
 import UssdError from '../utils/errors/UssdError';
+import deserialize from '../helpers/deserialize';
+import logger from '../utils/loggers/logger';
+import messages from '../utils/messages/app.messages';
+import sendUssdResponse, { UssdMenuParams } from '../helpers/sendUssdResponse';
 
 // eslint-disable-next-line
-const errorHandler = (
-	error: any,
-	req: Request,
-	res: Response,
-	_next: NextFunction
-) => {
+const errorHandler = (error: any, req: Request, res: Response, _next: NextFunction) => {
 	const { ussddynmenurequest } = req.body;
-	const { msisdn, sessionID, starcode, timestamp } =
-		deserialize(ussddynmenurequest);
+	const { msisdn, sessionID, starcode, timestamp } = deserialize(ussddynmenurequest);
 
 	const params: UssdMenuParams = {
 		menu: error.message,

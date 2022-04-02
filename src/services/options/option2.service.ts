@@ -1,15 +1,10 @@
-import {
-	pushSession,
-	getSessions,
-	getLastSession,
-	clearSession,
-} from '../../models/redisDB';
 import Menu from '../../Menu.json';
-import { ISession } from '../../interfaces/IUssd';
-import messages from '../../utils/messages/app.messages';
 import UssdError from '../../utils/errors/UssdError';
-import { validateMsisdn, validateCode } from '../../helpers/inputValidation';
 import confirmPairing from '../../api/confirmPairing.api';
+import messages from '../../utils/messages/app.messages';
+import { ISession } from '../../interfaces/IUssd';
+import { pushSession, getSessions, getLastSession, clearSession } from '../../models/redisDB';
+import { validateMsisdn, validateCode } from '../../helpers/inputValidation';
 
 const OPTION_MENU = Menu['2'];
 
@@ -41,7 +36,7 @@ export default async (request: ISession) => {
 			const code = validateCode(request.userdata as string);
 
 			request.page = 'confirm';
-			request.menu = OPTION_MENU['confirm']
+			request.menu = OPTION_MENU.confirm
 				.replace('(B_PARTY_NUMBER)', bPartyNumber)
 				.replace('(CODE)', code);
 		}

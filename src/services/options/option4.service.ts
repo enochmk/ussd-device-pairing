@@ -1,19 +1,12 @@
-import { getPairedDevices } from './../../api/getPairingDevices.api';
-import { getSessions } from './../../models/redisDB';
-import { validateOption } from '../../helpers/inputValidation';
-import {
-	pushSession,
-	getLastSession,
-	clearSession,
-} from '../../models/redisDB';
 import Menu from '../../Menu.json';
-import { ISession } from '../../interfaces/IUssd';
-import { validateMsisdn } from '../../helpers/inputValidation';
-import { getRemovePairDevices } from '../../api/getPairingDevices.api';
 import UssdError from '../../utils/errors/UssdError';
-import messages from '../../utils/messages/app.messages';
 import getSelectedDevice from '../../api/getSelectedDevice.api';
+import messages from '../../utils/messages/app.messages';
 import removePairing from '../../api/removePairing.api';
+import { ISession } from '../../interfaces/IUssd';
+import { getPairedDevices } from '../../api/getPairingDevices.api';
+import { getSessions, pushSession, getLastSession, clearSession } from '../../models/redisDB';
+import { validateOption, validateMsisdn } from '../../helpers/inputValidation';
 
 const OPTION_MENU = Menu['4'];
 
@@ -32,11 +25,10 @@ export default async (request: ISession) => {
 			request.menu = await getPairedDevices(aPartyNumber);
 
 			if (!request.menu) {
-				request.menu = OPTION_MENU['NO_PAIRED_DEVICE'];
+				request.menu = OPTION_MENU.NO_PAIRED_DEVICE;
 				flag = 2;
 			} else {
-				request.menu =
-					OPTION_MENU['UNPAIR_DEVICE_HEADER'] + '\n' + request.menu;
+				request.menu = `${OPTION_MENU.UNPAIR_DEVICE_HEADER}\n${request.menu}`;
 			}
 		}
 
@@ -48,7 +40,7 @@ export default async (request: ISession) => {
 			const bPartyNumber = await getSelectedDevice(aPartyNumber, option);
 
 			request.page = 'confirm';
-			request.menu = OPTION_MENU['confirm']
+			request.menu = OPTION_MENU.confirm
 				.replace('(A_PARTY_NUMBER)', aPartyNumber)
 				.replace('(B_PARTY_NUMBER)', bPartyNumber);
 			flag = 1;

@@ -5,11 +5,7 @@ import UssdError from '../utils/errors/UssdError';
 
 const HOST = config.get('api.host');
 
-const confirmPairing = async (
-	aPartyNumber: string,
-	bPartyNumber: string,
-	code: string
-) => {
+const confirmPairing = async (aPartyNumber: string, bPartyNumber: string, code: string) => {
 	const URL = `${HOST}/api/devicepairing/confirmPairing?initiator=${aPartyNumber}&aPartyNumber=${aPartyNumber}&bPartyNumber=${bPartyNumber}&pin=${code}&channel=ussd`;
 
 	try {

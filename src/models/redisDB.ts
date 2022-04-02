@@ -2,7 +2,7 @@ import config from 'config';
 
 import Menu from '../Menu.json';
 import client from '../databases/redis';
-import { ISession } from './../interfaces/IUssd';
+import { ISession } from '../interfaces/IUssd';
 
 const TIMER = config.get('redis.expiry') as number;
 
@@ -48,7 +48,7 @@ export const pushSession = async (session: ISession) => {
 };
 
 export const popSession = async (sessionID: string) => {
-	let sessions = await getSessions(sessionID);
+	const sessions = await getSessions(sessionID);
 	if (sessions.length > 1) {
 		sessions.pop();
 		await client.set(sessionID, JSON.stringify(sessions), {
