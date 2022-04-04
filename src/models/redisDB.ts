@@ -56,6 +56,11 @@ export const popSession = async (sessionID: string) => {
 		});
 	}
 
+	// restart session
+	if (sessions.length === 1) {
+		await initSession(sessions[0]);
+	}
+
 	return sessions;
 };
 
