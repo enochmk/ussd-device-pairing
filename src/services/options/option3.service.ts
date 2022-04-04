@@ -24,7 +24,7 @@ export default async (request: ISession) => {
 				request.menu = OPTION_MENU.NO_PAIRED_DEVICE;
 				flag = 2;
 			} else {
-				request.menu = `${OPTION_MENU.NO_PAIRED_DEVICE}\n${request.menu}`;
+				request.menu = `${OPTION_MENU.CHECK_BALANCE_HEADER}\n${request.menu}`;
 			}
 		}
 
