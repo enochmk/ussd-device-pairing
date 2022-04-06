@@ -4,6 +4,6 @@ import controller from './controllers/ussd.controller';
 
 const router = express.Router();
 
-router.use('/ussd', controller);
+router.use('/devicePairingUssd', controller);
 
 export default router;
